@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sweet Chaos — Angela Ellena</title>
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <meta name="description" content="Sweet Chaos, producción de moda de Angela Ellena. Una mujer que vive entre el romanticismo y la rebeldía.">
+  <meta property="og:title" content="Sweet Chaos — Angela Ellena">
+  <meta property="og:description" content="Delicada, pero no frágil.">
+  <meta property="og:image" content="assets/img/full/a01.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="bar-name" href="#top">Angela Ellena</a>
+  <div class="bar-right">
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" id="lang-es" data-lang="es" aria-pressed="true">ES</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button type="button" class="menu-btn" id="menu-open" aria-expanded="false" aria-controls="menu">( <span data-i18n="menu">Menú</span> )</button>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Secciones" hidden>
+  <button type="button" class="menu-close" id="menu-close">( <span data-i18n="close">Cerrar</span> )</button>
+  <ol class="menu-list">
+    <li><a href="#concepto"><span class="menu-num">A</span><span data-i18n="nav.concept">Concepto</span></a></li>
+    <li><a href="#fotos"><span class="menu-num">B</span><span data-i18n="nav.photos">Fotos</span></a></li>
+    <li><a href="#videos"><span class="menu-num">C</span>Videos</a></li>
+    <li><a href="#disenadora"><span class="menu-num">D</span><span data-i18n="nav.designer">Diseñadora</span></a></li>
+    <li><a href="#contacto"><span class="menu-num">E</span><span data-i18n="nav.contact">Contacto</span></a></li>
+  </ol>
+  <div class="menu-foot">
+    <a href="https://instagram.com/angela__estudio" target="_blank" rel="noopener">( Instagram )</a>
+    <span>angeellena610@gmail.com</span>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- Portada -->
+  <section class="hero wrap">
+    <div class="hero-meta">
+      <span>( <span data-i18n="hero.prod">Producción 01</span> )</span>
+      <span class="hide-sm" data-i18n="hero.kind">Producción de moda</span>
+      <span>( Angela Ellena )</span>
+    </div>
+    <h1 class="hero-title" aria-label="Sweet Chaos">
+      <span class="t-sweet" aria-hidden="true">Sweet</span>
+      <svg class="star hero-star" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 61.2,34.5 97.6,34.5 68.2,55.9 79.4,90.5 50,69.1 20.6,90.5 31.8,55.9 2.4,34.5 38.8,34.5"/></svg>
+      <span class="t-chaos" aria-hidden="true">Chaos</span>
+    </h1>
+    <div class="hero-foot">
+      <p class="hero-line" data-i18n="hero.line">Delicada, pero no frágil.</p>
+      <a class="hero-cue" href="#concepto">( Scroll ) ↓</a>
+    </div>
+  </section>
+
+  <!-- Cinta -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <!-- Las palabras y las estrellas las arma main.js según el idioma. -->
+      <span data-marquee></span>
+      <span data-marquee></span>
+    </div>
+  </div>
+
+  <!-- Concepto -->
+  <section class="concept wrap" id="concepto">
+    <p class="label">( <span data-i18n="nav.concept">Concepto</span> )</p>
+    <h2 class="concept-statement" data-i18n-html="concept.statement">Una mujer que vive entre el <em>romanticismo</em> y la <strong>rebeldía</strong>.</h2>
+    <div class="concept-cols">
+      <p data-i18n="concept.body">No busca ser perfecta, pero transmite una elegancia natural. Escucha vinilos, lee libros en el piso, nunca está apurada y es curiosa.</p>
+      <p class="concept-pull" data-i18n="hero.line">Delicada, pero no frágil.</p>
+    </div>
+  </section>
+
+  <!-- Fotos: las fotos se generan desde la carpeta "Fotos editadas". Lado A = color, Lado B = blanco y negro. -->
+  <section class="lookbook wrap" id="fotos">
+    <div class="sec-head">
+      <h2 class="sec-title" data-i18n="nav.photos">Fotos</h2>
+      <p class="label" data-i18n="lookbook.hint">( Tocá una foto para ampliarla )</p>
+    </div>
+
+    <div class="side">
+      <p class="side-label"><span data-i18n="side.a">Lado A</span><span class="side-count"><span data-i18n="side.a.kind">Color</span> · A1 — A27</span></p>
+      <div class="masonry">
+        <figure class="look"><button type="button" class="look-btn" data-index="0" data-full="assets/img/full/a01.jpg"><img src="assets/img/grid/a01.jpg" width="580" height="800" loading="lazy" alt="Sweet Chaos A1"></button><figcaption>A1</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="1" data-full="assets/img/full/a02.jpg"><img src="assets/img/grid/a02.jpg" width="569" height="800" loading="lazy" alt="Sweet Chaos A2"></button><figcaption>A2</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="2" data-full="assets/img/full/a03.jpg"><img src="assets/img/grid/a03.jpg" width="800" height="800" loading="lazy" alt="Sweet Chaos A3"></button><figcaption>A3</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="3" data-full="assets/img/full/a04.jpg"><img src="assets/img/grid/a04.jpg" width="800" height="800" loading="lazy" alt="Sweet Chaos A4"></button><figcaption>A4</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="4" data-full="assets/img/full/a05.jpg"><img src="assets/img/grid/a05.jpg" width="800" height="800" loading="lazy" alt="Sweet Chaos A5"></button><figcaption>A5</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="5" data-full="assets/img/full/a06.jpg"><img src="assets/img/grid/a06.jpg" width="800" height="800" loading="lazy" alt="Sweet Chaos A6"></button><figcaption>A6</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="6" data-full="assets/img/full/a07.jpg"><img src="assets/img/grid/a07.jpg" width="800" height="800" loading="lazy" alt="Sweet Chaos A7"></button><figcaption>A7</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="7" data-full="assets/img/full/a08.jpg"><img src="assets/img/grid/a08.jpg" width="600" height="800" loading="lazy" alt="Sweet Chaos A8"></button><figcaption>A8</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="8" data-full="assets/img/full/a09.jpg"><img src="assets/img/grid/a09.jpg" width="533" height="800" loading="lazy" alt="Sweet Chaos A9"></button><figcaption>A9</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="9" data-full="assets/img/full/a10.jpg"><img src="assets/img/grid/a10.jpg" width="600" height="800" loading="lazy" alt="Sweet Chaos A10"></button><figcaption>A10</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="10" data-full="assets/img/full/a11.jpg"><img src="assets/img/grid/a11.jpg" width="800" height="800" loading="lazy" alt="Sweet Chaos A11"></button><figcaption>A11</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="11" data-full="assets/img/full/a12.jpg"><img src="assets/img/grid/a12.jpg" width="800" height="800" loading="lazy" alt="Sweet Chaos A12"></button><figcaption>A12</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="12" data-full="assets/img/full/a13.jpg"><img src="assets/img/grid/a13.jpg" width="800" height="800" loading="lazy" alt="Sweet Chaos A13"></button><figcaption>A13</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="13" data-full="assets/img/full/a14.jpg"><img src="assets/img/grid/a14.jpg" width="800" height="800" loading="lazy" alt="Sweet Chaos A14"></button><figcaption>A14</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="14" data-full="assets/img/full/a15.jpg"><img src="assets/img/grid/a15.jpg" width="800" height="800" loading="lazy" alt="Sweet Chaos A15"></button><figcaption>A15</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="15" data-full="assets/img/full/a16.jpg"><img src="assets/img/grid/a16.jpg" width="800" height="800" loading="lazy" alt="Sweet Chaos A16"></button><figcaption>A16</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="16" data-full="assets/img/full/a17.jpg"><img src="assets/img/grid/a17.jpg" width="800" height="800" loading="lazy" alt="Sweet Chaos A17"></button><figcaption>A17</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="17" data-full="assets/img/full/a18.jpg"><img src="assets/img/grid/a18.jpg" width="567" height="800" loading="lazy" alt="Sweet Chaos A18"></button><figcaption>A18</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="18" data-full="assets/img/full/a19.jpg"><img src="assets/img/grid/a19.jpg" width="570" height="800" loading="lazy" alt="Sweet Chaos A19"></button><figcaption>A19</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="19" data-full="assets/img/full/a20.jpg"><img src="assets/img/grid/a20.jpg" width="573" height="800" loading="lazy" alt="Sweet Chaos A20"></button><figcaption>A20</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="20" data-full="assets/img/full/a21.jpg"><img src="assets/img/grid/a21.jpg" width="575" height="800" loading="lazy" alt="Sweet Chaos A21"></button><figcaption>A21</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="21" data-full="assets/img/full/a22.jpg"><img src="assets/img/grid/a22.jpg" width="571" height="800" loading="lazy" alt="Sweet Chaos A22"></button><figcaption>A22</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="22" data-full="assets/img/full/a23.jpg"><img src="assets/img/grid/a23.jpg" width="575" height="800" loading="lazy" alt="Sweet Chaos A23"></button><figcaption>A23</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="23" data-full="assets/img/full/a24.jpg"><img src="assets/img/grid/a24.jpg" width="800" height="555" loading="lazy" alt="Sweet Chaos A24"></button><figcaption>A24</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="24" data-full="assets/img/full/a25.jpg"><img src="assets/img/grid/a25.jpg" width="800" height="533" loading="lazy" alt="Sweet Chaos A25"></button><figcaption>A25</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="25" data-full="assets/img/full/a26.jpg"><img src="assets/img/grid/a26.jpg" width="800" height="533" loading="lazy" alt="Sweet Chaos A26"></button><figcaption>A26</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="26" data-full="assets/img/full/a27.jpg"><img src="assets/img/grid/a27.jpg" width="800" height="533" loading="lazy" alt="Sweet Chaos A27"></button><figcaption>A27</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="side">
+      <p class="side-label"><span data-i18n="side.b">Lado B</span><span class="side-count"><span data-i18n="side.b.kind">Blanco y negro</span> · B1 — B15</span></p>
+      <div class="masonry">
+        <figure class="look"><button type="button" class="look-btn" data-index="27" data-full="assets/img/full/b01.jpg"><img src="assets/img/grid/b01.jpg" width="574" height="800" loading="lazy" alt="Sweet Chaos B1"></button><figcaption>B1</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="28" data-full="assets/img/full/b02.jpg"><img src="assets/img/grid/b02.jpg" width="571" height="800" loading="lazy" alt="Sweet Chaos B2"></button><figcaption>B2</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="29" data-full="assets/img/full/b03.jpg"><img src="assets/img/grid/b03.jpg" width="571" height="800" loading="lazy" alt="Sweet Chaos B3"></button><figcaption>B3</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="30" data-full="assets/img/full/b04.jpg"><img src="assets/img/grid/b04.jpg" width="800" height="547" loading="lazy" alt="Sweet Chaos B4"></button><figcaption>B4</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="31" data-full="assets/img/full/b05.jpg"><img src="assets/img/grid/b05.jpg" width="571" height="800" loading="lazy" alt="Sweet Chaos B5"></button><figcaption>B5</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="32" data-full="assets/img/full/b06.jpg"><img src="assets/img/grid/b06.jpg" width="600" height="800" loading="lazy" alt="Sweet Chaos B6"></button><figcaption>B6</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="33" data-full="assets/img/full/b07.jpg"><img src="assets/img/grid/b07.jpg" width="600" height="800" loading="lazy" alt="Sweet Chaos B7"></button><figcaption>B7</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="34" data-full="assets/img/full/b08.jpg"><img src="assets/img/grid/b08.jpg" width="600" height="800" loading="lazy" alt="Sweet Chaos B8"></button><figcaption>B8</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="35" data-full="assets/img/full/b09.jpg"><img src="assets/img/grid/b09.jpg" width="800" height="600" loading="lazy" alt="Sweet Chaos B9"></button><figcaption>B9</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="36" data-full="assets/img/full/b10.jpg"><img src="assets/img/grid/b10.jpg" width="600" height="800" loading="lazy" alt="Sweet Chaos B10"></button><figcaption>B10</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="37" data-full="assets/img/full/b11.jpg"><img src="assets/img/grid/b11.jpg" width="600" height="800" loading="lazy" alt="Sweet Chaos B11"></button><figcaption>B11</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="38" data-full="assets/img/full/b12.jpg"><img src="assets/img/grid/b12.jpg" width="600" height="800" loading="lazy" alt="Sweet Chaos B12"></button><figcaption>B12</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="39" data-full="assets/img/full/b13.jpg"><img src="assets/img/grid/b13.jpg" width="600" height="800" loading="lazy" alt="Sweet Chaos B13"></button><figcaption>B13</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="40" data-full="assets/img/full/b14.jpg"><img src="assets/img/grid/b14.jpg" width="600" height="800" loading="lazy" alt="Sweet Chaos B14"></button><figcaption>B14</figcaption></figure>
+        <figure class="look"><button type="button" class="look-btn" data-index="41" data-full="assets/img/full/b15.jpg"><img src="assets/img/grid/b15.jpg" width="800" height="533" loading="lazy" alt="Sweet Chaos B15"></button><figcaption>B15</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos -->
+  <section class="videos wrap" id="videos">
+    <div class="sec-head">
+      <h2 class="sec-title">Videos</h2>
+      <p class="label" data-i18n="videos.hint">( Tocá un video para pausarlo )</p>
+    </div>
+    <p class="videos-intro" data-i18n="videos.body">Registros en cámara digital del día de producción.</p>
+    <div class="clips">
+      <figure class="clip">
+        <video src="assets/video/clip-01.mp4" poster="assets/video/clip-01.jpg" width="720" height="540" muted loop playsinline preload="metadata"></video>
+        <figcaption>V1 <span>0:11</span></figcaption>
+      </figure>
+      <figure class="clip">
+        <video src="assets/video/clip-02.mp4" poster="assets/video/clip-02.jpg" width="720" height="540" muted loop playsinline preload="metadata"></video>
+        <figcaption>V2 <span>0:05</span></figcaption>
+      </figure>
+      <figure class="clip">
+        <video src="assets/video/clip-03.mp4" poster="assets/video/clip-03.jpg" width="720" height="540" muted loop playsinline preload="metadata"></video>
+        <figcaption>V3 <span>0:12</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Diseñadora -->
+  <section class="designer wrap" id="disenadora">
+    <p class="label">( <span data-i18n="nav.designer">Diseñadora</span> )</p>
+    <h2 class="designer-name">Angela <em>Ellena</em></h2>
+    <ul class="designer-cv">
+      <li data-i18n="cv.1">Licenciada en Diseño e Innovación</li>
+      <li data-i18n="cv.2">Técnica en Textiles, Moda e Indumentaria</li>
+    </ul>
+    <p class="designer-note" data-i18n="designer.note">Sweet Chaos es su primera producción de moda.</p>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contact wrap" id="contacto">
+    <p class="label">( <span data-i18n="nav.contact">Contacto</span> )</p>
+    <a class="contact-big" href="mailto:angeellena610@gmail.com" data-i18n="contact.big">¿Hablamos?</a>
+    <div class="contact-rows">
+      <div class="contact-row">
+        <span class="contact-k">Email</span>
+        <span class="contact-v" id="email">angeellena610@gmail.com</span>
+        <button type="button" class="copy" data-copy="email" data-i18n="contact.copy">Copiar</button>
+      </div>
+      <div class="contact-row">
+        <span class="contact-k" data-i18n="contact.phone">Teléfono</span>
+        <a class="contact-v" id="phone" href="tel:+5493576650098">3576 65-0098</a>
+        <button type="button" class="copy" data-copy="phone" data-i18n="contact.copy">Copiar</button>
+      </div>
+      <div class="contact-row">
+        <span class="contact-k">Instagram</span>
+        <a class="contact-v" href="https://instagram.com/angela__estudio" target="_blank" rel="noopener">@angela__estudio</a>
+        <span class="contact-arrow" aria-hidden="true">↗</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot wrap">
+  <span>© 2026 Angela Ellena</span>
+  <span>Sweet Chaos ( 01 )</span>
+  <a href="#top" data-i18n="foot.top">Volver arriba ↑</a>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Fotos">
+  <img id="lb-img" src="" alt="">
+  <p class="lb-cap" id="lb-cap"></p>
+  <button type="button" class="lb-btn lb-close" id="lb-close">( <span data-i18n="close">Cerrar</span> )</button>
+  <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="Anterior">←</button>
+  <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="Siguiente">→</button>
+</dialog>
+
+<div class="cursor" id="cursor" aria-hidden="true">( <span data-i18n="cursor">ver</span> )</div>
+
+<script src="main.js"></script>
+</body>
+</html>
