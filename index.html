@@ -2,15 +2,187 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Angela Ellena</title>
-  <!-- Por ahora la raíz redirige a la única producción. Reemplazar por el índice del portfolio cuando haya más proyectos. -->
-  <meta http-equiv="refresh" content="0; url=sweet-chaos/">
-  <link rel="canonical" href="https://angelaellena.com/sweet-chaos/">
-  <script>location.replace('sweet-chaos/');</script>
-  <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#ECE9E3;color:#161412;font:16px/1.4 system-ui,sans-serif}a{color:inherit}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Angela Ellena — Portfolio</title>
+  <meta name="description" content="Portfolio de Angela Ellena: producción de moda y creación de marca.">
+  <meta property="og:title" content="Angela Ellena — Portfolio">
+  <meta property="og:description" content="Imagen, moda y marca, contadas en primera persona.">
+  <meta property="og:image" content="sweet-chaos/assets/img/full/a01.jpg">
+  <meta name="theme-color" content="#121010">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Pinyon+Script&display=swap">
+  <style>
+    /* Índice del portfolio: negro, el nombre gigante como portada y cada proyecto escrito
+       con su propia identidad (Sweet Chaos: Bodoni + condensada con estrella; Marie Claire's: firma caligráfica).
+       Sin fotos que aparezcan al pasar el mouse: las tiras de fotos están siempre a la vista. */
+    :root {
+      --black: #121010;
+      --bone: #ECE9E3;
+      --soft: #8C857D;
+      --rule: #2E2A27;
+      --bordo: #A23A41;
+      --f-romantic: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+      --f-rebel: "Archivo", "Helvetica Neue", Arial, sans-serif;
+      --f-script: "Pinyon Script", "Snell Roundhand", cursive;
+      --gutter: clamp(16px, 4vw, 48px);
+      --ease: cubic-bezier(.2, .7, .1, 1);
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--black); color: var(--bone); font-family: var(--f-rebel); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+    img { display: block; max-width: 100%; height: auto; }
+    :focus-visible { outline: 1px solid var(--bone); outline-offset: 4px; }
+    ::selection { background: var(--bone); color: var(--black); }
+    .wrap { padding-left: max(var(--gutter), env(safe-area-inset-left, 0px)); padding-right: max(var(--gutter), env(safe-area-inset-right, 0px)); }
+    .small { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+    .soft { color: var(--soft); }
+
+    .bar { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+    .lang { display: flex; gap: 6px; color: var(--soft); }
+    .lang button[aria-pressed="true"] { color: var(--bone); }
+
+    /* Portada */
+    .hero { padding-top: clamp(20px, 4vw, 48px); }
+    .name { margin: 0; font-family: var(--f-romantic); font-weight: 400; font-size: 15.5vw; line-height: .82; letter-spacing: -.045em; white-space: nowrap; }
+    .name em { font-style: italic; }
+    .sub { display: flex; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; margin-top: clamp(18px, 3vw, 36px); padding-top: 14px; border-top: 1px solid var(--rule); }
+    .intro { margin: clamp(48px, 8vw, 110px) 0 clamp(32px, 5vw, 60px); max-width: 30ch; font-family: var(--f-romantic); font-size: clamp(1.4rem, 1rem + 1.6vw, 2.4rem); line-height: 1.15; }
+    .intro em { color: var(--soft); }
+
+    /* Proyectos */
+    .list { list-style: none; margin: 0; padding-block: 0; }
+    .item { border-bottom: 1px solid var(--rule); }
+    .item:first-child { border-top: 1px solid var(--bone); }
+    .row { display: grid; grid-template-columns: 3em 1fr auto; align-items: center; gap: 8px 18px; padding: clamp(18px, 3vw, 34px) 0; }
+    .num { font-size: .78rem; letter-spacing: .08em; color: var(--soft); }
+    .arrow { font-size: clamp(1.4rem, 1rem + 1.6vw, 2.6rem); transition: transform .6s var(--ease); }
+    .row:hover .arrow, .row:focus-visible .arrow { transform: translateX(12px); }
+    .meta { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 4px 24px; }
+
+    .t-sc { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 .18em; line-height: .85; font-size: clamp(3rem, 1rem + 8vw, 9.5rem); }
+    .t-sc i { font-family: var(--f-romantic); font-style: italic; font-weight: 400; letter-spacing: -.02em; }
+    .t-sc b { font-family: var(--f-rebel); font-stretch: 62%; font-weight: 900; text-transform: uppercase; }
+    .t-sc svg { width: .55em; height: .55em; fill: currentColor; align-self: center; }
+    .t-mc { display: block; font-family: var(--f-script); font-weight: 400; font-size: clamp(3.4rem, 1rem + 9vw, 11rem); line-height: 1; }
+    .t-mc-sub { display: block; font-family: var(--f-romantic); text-transform: uppercase; letter-spacing: .35em; font-size: clamp(.7rem, .6rem + .4vw, 1rem); margin-top: .4em; }
+
+    .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(8px, 1vw, 14px); padding-bottom: clamp(18px, 3vw, 34px); }
+    .strip a { display: block; overflow: hidden; }
+    .strip img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+    @media (max-width: 700px) {
+      .row { grid-template-columns: 2.2em 1fr auto; }
+      .strip { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Contacto */
+    .contact { padding-top: clamp(70px, 10vw, 140px); padding-bottom: max(clamp(40px, 6vw, 80px), env(safe-area-inset-bottom)); }
+    .big { font-family: var(--f-romantic); font-style: italic; font-size: clamp(3rem, 1rem + 10vw, 12rem); line-height: .9; letter-spacing: -.03em; transition: color .3s; }
+    .big:hover { color: var(--bordo); }
+    .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 28px; margin-top: clamp(28px, 4vw, 48px); border-top: 1px solid var(--rule); padding-top: 16px; }
+    .foot-row a { overflow-wrap: anywhere; }
+    .foot-row a:hover { color: var(--soft); }
+
+    /* Aparición suave al cargar y al bajar */
+    .js .rv { opacity: 0; transform: translateY(24px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); }
+    .js .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .js .rv { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+  </style>
 </head>
 <body>
-  <a href="sweet-chaos/">Sweet Chaos — Angela Ellena</a>
+
+<header class="bar wrap small">
+  <span>Portfolio</span>
+  <div class="lang" role="group" aria-label="Idioma / Language">
+    <button type="button" data-lang="es" aria-pressed="true">ES</button>
+    <span aria-hidden="true">/</span>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <h1 class="name rv">Angela <em>Ellena</em></h1>
+    <div class="sub small soft rv">
+      <span data-en="Design · Fashion · Brand">Diseño · Moda · Marca</span>
+      <span data-en="B.A. in Design and Innovation">Licenciada en Diseño e Innovación</span>
+      <span data-en="( 02 projects )">( 02 proyectos )</span>
+    </div>
+  </section>
+
+  <p class="intro wrap rv" data-en="Image, fashion and brand, <em>told in the first person.</em>">Imagen, moda y marca, <em>contadas en primera persona.</em></p>
+
+  <ol class="list wrap" aria-label="Proyectos">
+    <li class="item rv">
+      <a class="row" href="sweet-chaos/">
+        <span class="num">01</span>
+        <span class="t-sc" aria-label="Sweet Chaos"><i>Sweet</i><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 61.2,34.5 97.6,34.5 68.2,55.9 79.4,90.5 50,69.1 20.6,90.5 31.8,55.9 2.4,34.5 38.8,34.5"/></svg><b>Chaos</b></span>
+        <span class="arrow" aria-hidden="true">→</span>
+        <span class="meta small soft"><span data-en="Fashion production">Producción de moda</span><span data-en="Delicate, but not fragile.">Delicada, pero no frágil.</span></span>
+      </a>
+      <div class="strip">
+        <a href="sweet-chaos/" tabindex="-1" aria-hidden="true"><img src="sweet-chaos/assets/img/grid/a01.jpg" width="580" height="800" alt=""></a>
+        <a href="sweet-chaos/" tabindex="-1" aria-hidden="true"><img src="sweet-chaos/assets/img/grid/a09.jpg" width="533" height="800" alt="" loading="lazy"></a>
+        <a href="sweet-chaos/" tabindex="-1" aria-hidden="true"><img src="sweet-chaos/assets/img/grid/b03.jpg" width="571" height="800" alt="" loading="lazy"></a>
+        <a href="sweet-chaos/" tabindex="-1" aria-hidden="true"><img src="sweet-chaos/assets/img/grid/a20.jpg" width="573" height="800" alt="" loading="lazy"></a>
+      </div>
+    </li>
+    <li class="item rv">
+      <a class="row" href="marie-claires/">
+        <span class="num">02</span>
+        <span><span class="t-mc">Marie Claire’s</span><span class="t-mc-sub" data-en="Designer lingerie">Lencería de diseño</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+        <span class="meta small soft"><span data-en="Brand creation · Co-founder">Creación de marca · Cofundadora</span><span>2025 — 2026</span></span>
+      </a>
+      <div class="strip">
+        <a href="marie-claires/" tabindex="-1" aria-hidden="true"><img src="marie-claires/assets/img/grid/hero.jpg" width="675" height="900" alt="" loading="lazy"></a>
+        <a href="marie-claires/" tabindex="-1" aria-hidden="true"><img src="marie-claires/assets/img/grid/f2.jpg" width="675" height="900" alt="" loading="lazy"></a>
+        <a href="marie-claires/" tabindex="-1" aria-hidden="true"><img src="marie-claires/assets/img/grid/l6.jpg" width="854" height="900" alt="" loading="lazy"></a>
+        <a href="marie-claires/" tabindex="-1" aria-hidden="true"><img src="marie-claires/assets/img/grid/m6.jpg" width="506" height="900" alt="" loading="lazy"></a>
+      </div>
+    </li>
+  </ol>
+
+  <section class="contact wrap" aria-label="Contacto">
+    <a class="big" href="mailto:angeellena610@gmail.com" data-en="Let’s talk">¿Hablamos?</a>
+    <div class="foot-row small">
+      <a href="mailto:angeellena610@gmail.com">angeellena610@gmail.com</a>
+      <a href="tel:+5493576650098">3576 65-0098</a>
+      <a href="https://instagram.com/angela__estudio" target="_blank" rel="noopener">@angela__estudio ↗</a>
+      <span class="soft">© 2026</span>
+    </div>
+  </section>
+</main>
+
+<script>
+(() => {
+  'use strict';
+  document.documentElement.classList.add('js');
+
+  // ES / EN: el español está en el HTML, el inglés en data-en. Comparte la preferencia con las páginas de proyecto.
+  const items = [...document.querySelectorAll('[data-en]')].map((el) => ({ el, es: el.innerHTML, en: el.dataset.en }));
+  function setLang(l) {
+    const lang = l === 'en' ? 'en' : 'es';
+    document.documentElement.lang = lang;
+    items.forEach((x) => { x.el.innerHTML = x[lang]; });
+    document.querySelectorAll('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+    try { localStorage.setItem('ae-lang', lang); } catch (e) { /* sin storage */ }
+  }
+  document.querySelectorAll('.lang button').forEach((b) => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  let saved = null;
+  try { saved = localStorage.getItem('ae-lang'); } catch (e) { /* sin storage */ }
+  setLang(saved || ((navigator.language || 'es').toLowerCase().startsWith('es') ? 'es' : 'en'));
+
+  // Aparición al bajar
+  const rvs = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.08 });
+    rvs.forEach((el) => io.observe(el));
+  } else rvs.forEach((el) => el.classList.add('in'));
+})();
+</script>
 </body>
 </html>

@@ -367,7 +367,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   text-transform: none;
   color: var(--ink);
 }
-.designer-cv { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); max-width: 760px; }
+.designer-cv { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
 .designer-cv li { padding-block: 14px; border-bottom: 1px solid var(--rule); font-size: clamp(1.05rem, 1rem + .5vw, 1.4rem); }
 .designer-note { margin: 0; color: var(--ink-soft); max-width: 46ch; }
 
@@ -408,17 +408,13 @@ a.contact-v:hover { text-decoration: underline; text-underline-offset: .15em; }
   .contact-k { grid-column: auto; }
 }
 
-/* ---------- Pie ---------- */
-.foot {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px 24px;
-  padding-block: 24px calc(24px + env(safe-area-inset-bottom, 0px));
-  border-top: 1px solid var(--ink);
-  font-size: var(--s-label);
-  letter-spacing: .08em;
-  text-transform: uppercase;
+/* ---------- Pie (el mismo de Marie Claire's) ---------- */
+.foot { background: var(--ink); color: var(--bone); padding: 36px 0 max(22px, env(safe-area-inset-bottom)); overflow: hidden; }
+.foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 28px; font-size: var(--s-label); letter-spacing: .08em; text-transform: uppercase; }
+.foot-row--small { opacity: .6; }
+.foot-mark {
+  margin: clamp(40px, 7vw, 90px) 0 clamp(28px, 4.5vw, 64px); text-align: center; white-space: nowrap;
+  font-family: var(--f-romantic); font-weight: 400; font-size: 15.5vw; line-height: 0.85; letter-spacing: -0.04em;
 }
 
 /* ---------- Lightbox ---------- */
