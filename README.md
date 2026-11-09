@@ -5,7 +5,10 @@ Sitio estático (HTML, CSS y JS sin frameworks) para **angelaellena.com**.
 ## Estructura
 
 ```
-index.html          → índice del portfolio (lista de proyectos, ES/EN)
+index.html          → índice del portfolio, agrupado por disciplina (ES/EN)
+about/              → Sobre mí: perfil y CV en versión web (ES/EN)
+  index.html
+  angela-ellena-cv-2026.pdf → CV descargable
 sweet-chaos/        → Proyecto 01: Sweet Chaos, producción de moda (one-page, ES/EN)
   index.html
   styles.css
@@ -22,7 +25,7 @@ marie-claires/      → Proyecto 02: Marie Claire's, creación de marca (one-pag
   assets/video/     → clips mp4 + portada de cada uno
 ```
 
-Cada proyecto nuevo va en su propia carpeta y se suma como una fila más en `index.html` de la raíz.
+Cada proyecto nuevo va en su propia carpeta y se suma como una fila en el grupo que corresponda de `index.html` (Dirección creativa & estilismo, Marca & e-commerce, Diseño & investigación). Los proyectos sin página propia van como filas de solo texto (`.row.static`).
 El idioma elegido se recuerda entre páginas (`ae-lang` en localStorage).
 
 ## Ver en local

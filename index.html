@@ -44,6 +44,8 @@
     .bar { display: flex; justify-content: space-between; align-items: center; height: 64px; }
     .lang { display: flex; gap: 6px; color: var(--soft); }
     .lang button[aria-pressed="true"] { color: var(--bone); }
+    .nav { display: flex; align-items: center; gap: clamp(16px, 3vw, 36px); }
+    .nav > a:hover { color: var(--soft); }
 
     /* Portada */
     .hero { padding-top: clamp(20px, 4vw, 48px); }
@@ -54,7 +56,7 @@
     .intro em { color: var(--soft); }
 
     /* Proyectos */
-    .list { list-style: none; margin: 0; padding-block: 0; }
+    .list { list-style: none; margin: 0; padding: 0; }
     .item { border-bottom: 1px solid var(--rule); }
     .item:first-child { border-top: 1px solid var(--bone); }
     .row { display: grid; grid-template-columns: 3em 1fr auto; align-items: center; gap: 8px 18px; padding: clamp(18px, 3vw, 34px) 0; }
@@ -69,6 +71,19 @@
     .t-sc svg { width: .55em; height: .55em; fill: currentColor; align-self: center; }
     .t-mc { display: block; font-family: var(--f-script); font-weight: 400; font-size: clamp(3.4rem, 1rem + 9vw, 11rem); line-height: 1; }
     .t-mc-sub { display: block; font-family: var(--f-romantic); text-transform: uppercase; letter-spacing: .35em; font-size: clamp(.7rem, .6rem + .4vw, 1rem); margin-top: .4em; }
+
+    /* Grupos por disciplina */
+    .group + .group { margin-top: clamp(56px, 8vw, 110px); }
+    .group-head { display: flex; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; padding-bottom: 12px; }
+    .group-head h2 { margin: 0; font: inherit; }
+    /* Proyectos sin página propia: solo texto, sin flecha ni fotos */
+    .row.static { cursor: default; }
+    .t-txt { display: block; font-family: var(--f-romantic); font-weight: 400; font-size: clamp(1.9rem, 1rem + 3.4vw, 4.4rem); line-height: 1; letter-spacing: -.02em; }
+    .t-txt em { color: var(--soft); }
+    .t-desc { grid-column: 2 / -1; max-width: 62ch; margin: 0; color: var(--soft); font-size: .95rem; }
+    .more { display: inline-flex; gap: .6em; align-items: baseline; margin-top: clamp(40px, 6vw, 80px); font-family: var(--f-romantic); font-style: italic; font-size: clamp(1.4rem, 1rem + 1.6vw, 2.4rem); }
+    .more-a { transition: transform .6s var(--ease); }
+    .more:hover .more-a { transform: translateX(10px); }
 
     .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(8px, 1vw, 14px); padding-bottom: clamp(18px, 3vw, 34px); }
     .strip a { display: block; overflow: hidden; }
@@ -96,11 +111,14 @@
 
 <header class="bar wrap small">
   <span>Portfolio</span>
-  <div class="lang" role="group" aria-label="Idioma / Language">
-    <button type="button" data-lang="es" aria-pressed="true">ES</button>
-    <span aria-hidden="true">/</span>
-    <button type="button" data-lang="en" aria-pressed="false">EN</button>
-  </div>
+  <nav class="nav">
+    <a href="about/" data-en="About">Sobre mí</a>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </nav>
 </header>
 
 <main>
@@ -115,7 +133,10 @@
 
   <p class="intro wrap rv" data-en="Image, fashion and brand, <em>told in the first person.</em>">Imagen, moda y marca, <em>contadas en primera persona.</em></p>
 
-  <ol class="list wrap" aria-label="Proyectos">
+  <div class="wrap">
+  <section class="group" aria-labelledby="g1">
+    <header class="group-head small soft rv"><h2 id="g1" data-en="Creative direction &amp; styling">Dirección creativa &amp; estilismo</h2><span>A</span></header>
+    <ol class="list">
     <li class="item rv">
       <a class="row" href="sweet-chaos/">
         <span class="num">01</span>
@@ -130,6 +151,12 @@
         <a href="sweet-chaos/" tabindex="-1" aria-hidden="true"><img src="sweet-chaos/assets/img/grid/a20.jpg" width="573" height="800" alt="" loading="lazy"></a>
       </div>
     </li>
+    </ol>
+  </section>
+
+  <section class="group" aria-labelledby="g2">
+    <header class="group-head small soft rv"><h2 id="g2" data-en="Brand &amp; e-commerce">Marca &amp; e-commerce</h2><span>B</span></header>
+    <ol class="list" start="2">
     <li class="item rv">
       <a class="row" href="marie-claires/">
         <span class="num">02</span>
@@ -144,7 +171,35 @@
         <a href="marie-claires/" tabindex="-1" aria-hidden="true"><img src="marie-claires/assets/img/grid/m6.jpg" width="506" height="900" alt="" loading="lazy"></a>
       </div>
     </li>
-  </ol>
+    </ol>
+  </section>
+
+  <section class="group" aria-labelledby="g3">
+    <header class="group-head small soft rv"><h2 id="g3" data-en="Design &amp; research">Diseño &amp; investigación</h2><span>C</span></header>
+    <ul class="list">
+      <li class="item rv">
+        <div class="row static">
+          <span class="num">—</span>
+          <span class="t-txt">Materia Viva, <em data-en="the biology of dressing">la biología del vestir</em></span>
+          <span></span>
+          <span class="meta small soft"><span data-en="Academic project">Proyecto académico</span><span data-en="Biomaterials">Biomateriales</span></span>
+          <p class="t-desc" data-en="Speculative research on biomaterials such as mycelium, algae and bacterial cellulose, and on therapeutic, regenerative textiles that interact with the body in a future scenario.">Investigación prospectiva sobre biomateriales como micelio, algas y celulosa bacteriana, y sobre textiles terapéuticos y regenerativos que interactúan con el cuerpo en un escenario futuro.</p>
+        </div>
+      </li>
+      <li class="item rv">
+        <div class="row static">
+          <span class="num">—</span>
+          <span class="t-txt" data-en="Collection <em>design</em>">Diseño de <em>colecciones</em></span>
+          <span></span>
+          <span class="meta small soft"><span data-en="Academic projects">Proyectos académicos</span><span data-en="Avant-garde · Lingerie · Sportswear · Stage costume">Vanguardia · Lencería · Deportiva · Vestuario teatral</span></span>
+          <p class="t-desc" data-en="Concept and development of collections: trend research, textile selection, digital illustration, design proposals and technical documentation.">Conceptualización y desarrollo de colecciones: investigación de tendencias, selección de textiles, ilustración digital, propuestas de diseño y documentación técnica.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <a class="more rv" href="about/"><span data-en="Full profile &amp; CV">Perfil completo y CV</span><span class="more-a" aria-hidden="true">→</span></a>
+  </div>
 
   <section class="contact wrap" aria-label="Contacto">
     <a class="big" href="mailto:angeellena610@gmail.com" data-en="Let’s talk">¿Hablamos?</a>
