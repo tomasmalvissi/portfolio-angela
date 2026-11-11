@@ -314,16 +314,18 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   font-weight: 400;
 }
 .contact .label, .designer .label { letter-spacing: .08em; }
+/* Igual que el ¿HABLAMOS? del índice: mayúscula pesada y rosa Pink Glo al pasar el mouse */
 .contact-big {
-  font-family: var(--f-romantic);
-  font-style: italic;
-  font-size: clamp(3.25rem, 1rem + 11vw, 13rem);
-  line-height: 0.9;
-  letter-spacing: -0.03em;
+  font-family: var(--f-rebel);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, .5rem + 10vw, 12rem);
+  line-height: 0.88;
+  letter-spacing: -0.045em;
   justify-self: start;
   transition: color .3s;
 }
-.contact-big:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .12em; }
+.contact-big:hover { color: #FB0292; /* Pantone 17-2435 TN Pink Glo */ }
 .contact-rows { display: grid; border-top: 1px solid var(--rule); }
 .contact-row {
   display: grid;
