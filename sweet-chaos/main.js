@@ -78,12 +78,12 @@
       el.innerHTML = t('marquee').map((w) => `<span>${w}</span>${star}`).join('');
     });
     document.querySelectorAll('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
-    try { localStorage.setItem('ae-lang', lang); } catch (e) { /* sin storage */ }
+    try { sessionStorage.setItem('ae-lang', lang); } catch (e) { /* sin storage */ }
   }
 
   let saved = null;
-  try { saved = localStorage.getItem('ae-lang'); } catch (e) { /* sin storage */ }
-  const initial = saved || ((navigator.language || 'es').toLowerCase().startsWith('es') ? 'es' : 'en');
+  try { saved = sessionStorage.getItem('ae-lang'); } catch (e) { /* sin storage */ }
+  const initial = saved || 'es';
   document.querySelectorAll('.lang button').forEach((b) => b.addEventListener('click', () => setLang(b.dataset.lang)));
 
   /* ---------- Menú ---------- */
