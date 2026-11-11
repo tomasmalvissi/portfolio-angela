@@ -11,6 +11,8 @@
   --ae-paper: #EEEAE3;   /* fondo hueso */
   --ae-ink: #161312;     /* casi negro: texto y fondo del pie */
   --ae-pink: #FB0292;    /* Pantone 17-2435 TN Pink Glo: único color de hover */
+  --ae-soft: #6E675F;    /* texto secundario */
+  --ae-rule: #D2CBC1;    /* líneas finas */
   --ae-f-name: "Archivo", "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -40,6 +42,43 @@
   transition: color 0.3s;
 }
 .ae-hablamos:hover { color: var(--ae-pink); }
+
+/* Bloque de contacto completo: etiqueta, ¿HABLAMOS? y filas con los datos a la vista.
+   Va en todas las páginas justo antes del pie. Los botones "Copiar" funcionan con assets/site.js. */
+.ae-contact {
+  padding-block: clamp(72px, 10vw, 140px);
+  border-top: 1px solid var(--ae-ink);
+  display: grid;
+  gap: clamp(24px, 4vw, 48px);
+  font-family: var(--ae-f-name);
+  font-weight: 400;
+}
+.ae-contact .ae-hablamos { justify-self: start; }
+.ae-contact-label { margin: 0; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ae-soft); }
+.ae-contact-rows { display: grid; border-top: 1px solid var(--ae-rule); }
+.ae-contact-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 4px 16px;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--ae-rule);
+}
+.ae-contact-k { grid-column: 1 / -1; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ae-soft); }
+.ae-contact-v { font-size: clamp(1.05rem, 0.9rem + 1vw, 1.75rem); overflow-wrap: anywhere; user-select: all; color: inherit; text-decoration: none; }
+a.ae-contact-v { user-select: auto; }
+a.ae-contact-v:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+.ae-copy {
+  font: inherit; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: inherit; background: none; cursor: pointer;
+  border: 1px solid var(--ae-ink); padding: 6px 12px; border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
+}
+.ae-copy:hover { background: var(--ae-ink); color: var(--ae-paper); }
+@media (min-width: 760px) {
+  .ae-contact-row { grid-template-columns: 160px minmax(0, 1fr) auto; }
+  .ae-contact-k { grid-column: auto; }
+}
 
 /* Pie negro con la firma gigante: cierra todas las páginas */
 .ae-pie {

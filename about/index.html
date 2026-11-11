@@ -87,10 +87,6 @@
     }
 
     /* Contacto */
-    .contact { padding-top: clamp(90px, 12vw, 170px); padding-bottom: max(clamp(40px, 6vw, 80px), env(safe-area-inset-bottom)); }
-    .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 28px; margin-top: clamp(28px, 4vw, 48px); border-top: 1px solid var(--rule); padding-top: 16px; }
-    .foot-row a { overflow-wrap: anywhere; }
-    .foot-row a:hover { color: var(--soft); }
 
 
     .js .rv { opacity: 0; transform: translateY(24px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); }
@@ -100,7 +96,7 @@
     /* Impresión: hoja clara y sin animaciones */
     @media print {
       body { background: #fff; color: #000; }
-      .bar, .cv-btn, .go, .contact .ae-hablamos { display: none; }
+      .bar, .cv-btn, .go, .ae-hablamos, .ae-copy { display: none; }
       .js .rv { opacity: 1; transform: none; }
       .bio p:not(.lead), .entry p { color: #222; }
       .sec { border-top-color: #000; break-inside: avoid; }
@@ -235,13 +231,25 @@
     </div>
   </section>
 
-  <section class="contact wrap" aria-label="Contacto">
+  <section class="ae-contact wrap" id="contacto">
+    <p class="ae-contact-label">( <span data-en="Contact">Contacto</span> )</p>
     <a class="ae-hablamos" href="mailto:angeellena610@gmail.com" data-en="Let’s talk">¿Hablamos?</a>
-    <div class="foot-row small">
-      <a href="mailto:angeellena610@gmail.com">angeellena610@gmail.com</a>
-      <a href="tel:+5493576650098">3576 65-0098</a>
-      <a href="https://instagram.com/angela__estudio" target="_blank" rel="noopener">@angela__estudio ↗</a>
-      <a href="angela-ellena-cv-2026.pdf" download data-en="CV (PDF) ↓">CV (PDF) ↓</a>
+    <div class="ae-contact-rows">
+      <div class="ae-contact-row">
+        <span class="ae-contact-k">Email</span>
+        <span class="ae-contact-v" id="email">angeellena610@gmail.com</span>
+        <button type="button" class="ae-copy" data-copy="email" data-en="Copy">Copiar</button>
+      </div>
+      <div class="ae-contact-row">
+        <span class="ae-contact-k" data-en="Phone">Teléfono</span>
+        <a class="ae-contact-v" id="phone" href="tel:+5493576650098">3576 65-0098</a>
+        <button type="button" class="ae-copy" data-copy="phone" data-en="Copy">Copiar</button>
+      </div>
+      <div class="ae-contact-row">
+        <span class="ae-contact-k">Instagram</span>
+        <a class="ae-contact-v" href="https://instagram.com/angela__estudio" target="_blank" rel="noopener">@angela__estudio</a>
+        <span aria-hidden="true">↗</span>
+      </div>
     </div>
   </section>
 </main>
@@ -285,5 +293,6 @@
   } else rvs.forEach((el) => el.classList.add('in'));
 })();
 </script>
+<script src="../assets/site.js" defer></script>
 </body>
 </html>

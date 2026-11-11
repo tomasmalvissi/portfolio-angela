@@ -5,7 +5,7 @@ Estas son reglas fijas del sitio: no cambiarlas salvo que Angela o Tomás lo pid
 
 ## Piezas compartidas: `assets/site.css`
 
-Todo lo que se repite en todas las páginas vive en `assets/site.css`. **No se copia ni se redefine dentro de una página**: si hay que cambiarlo, se cambia ahí y cambia en todo el sitio.
+Todo lo que se repite en todas las páginas vive en `assets/site.css`, y su comportamiento en `assets/site.js`. **No se copia ni se redefine dentro de una página**: si hay que cambiarlo, se cambia ahí y cambia en todo el sitio.
 
 Cada página la carga después de sus propios estilos:
 
@@ -46,17 +46,43 @@ Todas las páginas terminan con este pie, sin excepción. Markup exacto:
 - En el índice el link de la izquierda es "Sobre mí", y el texto chico de la derecha es "Portfolio".
 - El "© 2026" va solo en el pie, nunca repetido en la fila de contacto.
 
-### 3. ¿HABLAMOS? → `.ae-hablamos`
+### 3. Contacto con ¿HABLAMOS? → `.ae-contact` + `assets/site.js`
 
-Va en todas las páginas, justo antes del pie y seguido de los datos de contacto: mail, teléfono e Instagram.
-Siempre con el texto "¿Hablamos?" (en inglés "Let’s talk") y enlazado a `mailto:angeellena610@gmail.com`.
+Va en todas las páginas, justo antes del pie, **completo y con los datos a la vista**:
+- la etiqueta "( Contacto )";
+- "¿HABLAMOS?" (en inglés "Let’s talk"), con enlace a `mailto:angeellena610@gmail.com`;
+- tres filas: Email y Teléfono con botón "Copiar", e Instagram con ↗.
+
+Nunca se recorta a una línea suelta. Markup exacto (en Sweet Chaos los textos usan `data-i18n` en vez de `data-en`):
 
 ```html
-<a class="ae-hablamos" href="mailto:angeellena610@gmail.com" data-en="Let’s talk">¿Hablamos?</a>
+<section class="ae-contact wrap" id="contacto">
+  <p class="ae-contact-label">( <span data-en="Contact">Contacto</span> )</p>
+  <a class="ae-hablamos" href="mailto:angeellena610@gmail.com" data-en="Let’s talk">¿Hablamos?</a>
+  <div class="ae-contact-rows">
+    <div class="ae-contact-row">
+      <span class="ae-contact-k">Email</span>
+      <span class="ae-contact-v" id="email">angeellena610@gmail.com</span>
+      <button type="button" class="ae-copy" data-copy="email" data-en="Copy">Copiar</button>
+    </div>
+    <div class="ae-contact-row">
+      <span class="ae-contact-k" data-en="Phone">Teléfono</span>
+      <a class="ae-contact-v" id="phone" href="tel:+5493576650098">3576 65-0098</a>
+      <button type="button" class="ae-copy" data-copy="phone" data-en="Copy">Copiar</button>
+    </div>
+    <div class="ae-contact-row">
+      <span class="ae-contact-k">Instagram</span>
+      <a class="ae-contact-v" href="https://instagram.com/angela__estudio" target="_blank" rel="noopener">@angela__estudio</a>
+      <span aria-hidden="true">↗</span>
+    </div>
+  </div>
+</section>
 ```
 
-En los proyectos se le suma la clase de layout de la página (`contact-big ae-hablamos`).
-No se le agrega tipografía, color ni hover propio.
+- Los botones "Copiar" funcionan con `assets/site.js`, que cada página carga al final:
+  `<script src="assets/site.js" defer></script>` en la raíz, o `../assets/site.js` en una subcarpeta.
+- El botón dice "Copiado" / "Copied" según el idioma de la página.
+- No se agrega tipografía, color, hover ni lógica de copiado propios en la página.
 
 ## Paleta y tipografías del sitio (índice y Sobre mí)
 

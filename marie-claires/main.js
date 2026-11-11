@@ -186,25 +186,7 @@
     clips.forEach((v) => vio.observe(v));
   }
 
-  /* ---------- Copiar email / teléfono ---------- */
-  document.querySelectorAll('.copy[data-copy]').forEach((btn) => {
-    const target = document.getElementById(btn.dataset.copy);
-    const select = () => {
-      const r = document.createRange();
-      r.selectNodeContents(target);
-      const s = window.getSelection();
-      s.removeAllRanges();
-      s.addRange(r);
-    };
-    btn.addEventListener('click', () => {
-      const done = () => {
-        btn.textContent = UI[lang].copied;
-        setTimeout(() => { btn.textContent = UI[lang].copy; }, 1600);
-      };
-      if (navigator.clipboard) navigator.clipboard.writeText(target.textContent.trim()).then(done, select);
-      else select();
-    });
-  });
+  /* Copiar email / teléfono: lo hace ../assets/site.js */
 
   /* ---------- Cursor "ver" ---------- */
   const cursor = document.getElementById('cursor');

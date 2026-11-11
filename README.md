@@ -7,7 +7,8 @@ Sitio estático (HTML, CSS y JS sin frameworks) para **angelaellena.com**.
 ```
 index.html          → índice del portfolio, agrupado por disciplina (ES/EN)
 assets/
-  site.css          → piezas compartidas por todas las páginas: nombre, ¿HABLAMOS? y pie negro
+  site.css          → piezas compartidas por todas las páginas: nombre, contacto con ¿HABLAMOS? y pie negro
+  site.js           → botones "Copiar" del contacto
   home/             → fotos de la portada del índice (se muestran en blanco y negro)
 about/              → Sobre mí: perfil y CV en versión web (ES/EN)
   index.html

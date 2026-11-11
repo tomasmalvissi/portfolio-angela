@@ -294,37 +294,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .designer-cv li { padding-block: 14px; border-bottom: 1px solid var(--rule); font-size: clamp(1.05rem, 1rem + .5vw, 1.4rem); }
 .designer-note { margin: 0; color: var(--ink-soft); max-width: 46ch; font-family: var(--f-rebel); font-weight: 400; }
 
-/* ---------- Contacto (igual que Sweet Chaos) ---------- */
-.contact {
-  padding-block: clamp(72px, 10vw, 140px);
-  border-top: 1px solid var(--ink);
-  display: grid;
-  gap: clamp(24px, 4vw, 48px);
-  font-family: var(--f-rebel);
-  font-weight: 400;
-}
-.contact .label, .designer .label { letter-spacing: .08em; }
-/* La tipografía de ¿HABLAMOS? viene de ../assets/site.css (.ae-hablamos) */
-.contact-big { justify-self: start; }
-.contact-rows { display: grid; border-top: 1px solid var(--rule); }
-.contact-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 4px 16px;
-  padding-block: 16px;
-  border-bottom: 1px solid var(--rule);
-}
-.contact-k { grid-column: 1 / -1; font-size: var(--s-label); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
-.contact-v { font-size: clamp(1.05rem, .9rem + 1vw, 1.75rem); overflow-wrap: anywhere; user-select: all; }
-a.contact-v { user-select: auto; }
-a.contact-v:hover { text-decoration: underline; text-underline-offset: .15em; }
-.copy { font-size: var(--s-label); letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--ink); padding: 6px 12px; border-radius: 999px; transition: background .2s, color .2s; }
-.copy:hover { background: var(--ink); color: var(--paper); }
-@media (min-width: 760px) {
-  .contact-row { grid-template-columns: 160px minmax(0, 1fr) auto; }
-  .contact-k { grid-column: auto; }
-}
+.designer .label { letter-spacing: .08em; }
+
+/* ---------- Contacto: viene completo de ../assets/site.css (.ae-contact) ---------- */
 
 /* ---------- Pie ---------- */
 
