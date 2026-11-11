@@ -52,22 +52,21 @@
     .nav { display: flex; align-items: center; gap: clamp(16px, 3vw, 36px); }
     .nav > a:hover { color: var(--soft); }
 
-    /* Portada: un cuadro horizontal (75% del ancho, como un portarretrato) donde van pasando las fotos,
-       con ANGELA ELLENA superpuesto encima y notas en cursiva en las cuatro esquinas, por fuera. */
+    /* Portada: un cuadro ancho (todo el ancho de la página, alto de la pantalla menos los textos) donde van
+       pasando las fotos en blanco y negro, con ANGELA ELLENA en un renglón superpuesto encima
+       y notas en cursiva en las cuatro esquinas, por fuera. */
     .hero { min-height: calc(100svh - 64px); display: flex; align-items: center; justify-content: center; padding-top: 1vh; padding-bottom: 4vh; }
-    .stage { width: min(75vw, calc((100svh - 64px - 140px) * 1.5)); display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
-    .frame { grid-column: 1 / -1; position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: var(--rule); container-type: inline-size; }
-    .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s var(--ease); }
+    .stage { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+    .frame { grid-column: 1 / -1; position: relative; height: clamp(320px, calc(100svh - 64px - 130px), 66vw); overflow: hidden; background: var(--rule); container-type: inline-size; }
+    .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); opacity: 0; transition: opacity 1.2s var(--ease); }
     .frame img.on { opacity: 1; }
     .frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.22)); pointer-events: none; }
-    .name { position: absolute; inset: 0; z-index: 1; margin: 0; display: flex; flex-wrap: wrap; align-content: center; justify-content: center; gap: 0 .2em; padding: 0 4cqi; color: var(--paper); font-family: var(--f-rebel); font-weight: 800; font-stretch: 105%; text-transform: uppercase; font-size: 9.4cqi; line-height: .84; white-space: nowrap; letter-spacing: -.045em; text-align: center; text-shadow: 0 2px 30px rgba(0,0,0,.18); }
+    .name { position: absolute; inset: 0; z-index: 1; margin: 0; display: flex; flex-wrap: nowrap; align-items: center; justify-content: center; gap: 0 .2em; padding: 0 3cqi; color: var(--paper); font-family: var(--f-rebel); font-weight: 800; font-stretch: 105%; text-transform: uppercase; font-size: 10.4cqi; line-height: .84; white-space: nowrap; letter-spacing: -.045em; text-align: center; text-shadow: 0 2px 30px rgba(0,0,0,.18); }
     .cap { font-size: clamp(.95rem, .8rem + .35vw, 1.25rem); line-height: 1.2; }
     .cap.r { text-align: right; }
     .cap a:hover { color: var(--soft); }
     @media (max-width: 760px) {
-      .stage { width: 100%; }
-      .frame { aspect-ratio: 4 / 5; }
-      .name { flex-direction: column; font-size: 21cqi; }
+      .frame { height: min(72svh, 125vw); }
       .cap { font-size: .88rem; }
     }
     .intro { margin: clamp(32px, 6vw, 80px) auto clamp(48px, 7vw, 90px); max-width: 22ch; text-align: center; font-family: var(--f-italic); font-weight: 500; font-variation-settings: "opsz" 36; font-size: clamp(1.6rem, 1rem + 2.4vw, 3.4rem); line-height: 1.08; letter-spacing: -.02em; }
