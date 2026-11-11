@@ -89,11 +89,19 @@
 
     /* Contacto */
     .contact { padding-top: clamp(90px, 12vw, 170px); padding-bottom: max(clamp(40px, 6vw, 80px), env(safe-area-inset-bottom)); }
-    .big { font-family: var(--f-romantic); font-style: italic; font-size: clamp(3rem, 1rem + 10vw, 12rem); line-height: .9; letter-spacing: -.03em; transition: color .3s; }
+    /* Igual que el ¿HABLAMOS? del índice */
+    .big { font-family: var(--f-rebel); font-weight: 800; text-transform: uppercase; font-size: clamp(2.6rem, .5rem + 10vw, 12rem); line-height: .88; letter-spacing: -.045em; transition: color .3s; }
     .big:hover { color: var(--pink); }
     .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 28px; margin-top: clamp(28px, 4vw, 48px); border-top: 1px solid var(--rule); padding-top: 16px; }
     .foot-row a { overflow-wrap: anywhere; }
     .foot-row a:hover { color: var(--soft); }
+
+    /* Pie negro con la firma, igual que en Sweet Chaos y Marie Claire's */
+    .pie { background: var(--ink); color: var(--paper); padding: 36px 0 max(22px, env(safe-area-inset-bottom)); overflow: hidden; }
+    .pie-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 28px; }
+    .pie-row a:hover { opacity: .6; }
+    .pie-row--small { opacity: .6; }
+    .pie-mark { margin: clamp(40px, 7vw, 90px) 0 clamp(28px, 4.5vw, 64px); text-align: center; white-space: nowrap; font-family: var(--f-rebel); font-weight: 800; font-stretch: 105%; text-transform: uppercase; letter-spacing: -.045em; font-size: 10.4vw; line-height: .84; }
 
     .js .rv { opacity: 0; transform: translateY(24px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease); }
     .js .rv.in { opacity: 1; transform: none; }
@@ -102,7 +110,7 @@
     /* Impresión: hoja clara y sin animaciones */
     @media print {
       body { background: #fff; color: #000; }
-      .bar, .cv-btn, .go, .contact .big { display: none; }
+      .bar, .cv-btn, .go, .contact .big, .pie { display: none; }
       .js .rv { opacity: 1; transform: none; }
       .bio p:not(.lead), .entry p { color: #222; }
       .sec { border-top-color: #000; break-inside: avoid; }
@@ -246,6 +254,18 @@
     </div>
   </section>
 </main>
+
+<footer class="pie">
+  <div class="pie-row wrap small">
+    <a href="../" data-en="← Portfolio">← Portfolio</a>
+    <a href="#top" data-en="Back to top ↑">Volver arriba ↑</a>
+  </div>
+  <p class="pie-mark" aria-hidden="true">Angela Ellena</p>
+  <div class="pie-row pie-row--small wrap small">
+    <span>© 2026 Angela Ellena</span>
+    <span data-en="About">Sobre mí</span>
+  </div>
+</footer>
 
 <script>
 (() => {
