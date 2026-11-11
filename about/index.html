@@ -52,6 +52,9 @@
     .bio { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 24px clamp(24px, 4vw, 64px); margin: clamp(48px, 8vw, 110px) 0 0; }
     .lead { margin: 0 0 .8em; font-family: var(--f-romantic); font-size: clamp(1.4rem, 1rem + 1.6vw, 2.4rem); line-height: 1.15; max-width: 30ch; }
     .lead em { color: var(--soft); }
+    /* Foto de perfil en la columna izquierda, debajo de la etiqueta */
+    .side { display: flex; flex-direction: column; gap: 16px; }
+    .portrait { display: block; width: 100%; height: auto; max-width: 420px; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 28%; }
     .bio p:not(.lead) { margin: 0 0 1em; max-width: 60ch; font-size: 1.02rem; color: #3A3532; }
     .cv-btn { display: inline-flex; align-items: center; gap: .8em; margin-top: 12px; padding: 14px 22px; border: 1px solid var(--ink); border-radius: 999px; transition: background .3s, color .3s; }
     .cv-btn:hover { background: var(--ink); color: var(--paper); }
@@ -78,6 +81,7 @@
 
     @media (max-width: 760px) {
       .bio, .sec { grid-template-columns: 1fr; }
+      .portrait { max-width: 78%; }
       .skills { grid-template-columns: 1fr; }
       .entry { grid-template-columns: 1fr; }
       .entry .when { padding-top: 0; }
@@ -127,7 +131,10 @@
   </section>
 
   <section class="bio wrap">
-    <div class="small soft rv" data-en="Profile">Perfil</div>
+    <div class="side rv">
+      <div class="small soft" data-en="Profile">Perfil</div>
+      <img class="portrait" src="angela.jpg" width="787" height="1400" alt="Angela Ellena">
+    </div>
     <div class="rv">
       <p class="lead" data-en="I work between product, image and brand, <em>from the first sketch to the shop window.</em>">Trabajo entre el producto, la imagen y la marca, <em>desde el primer boceto hasta la vidriera.</em></p>
       <p data-en="I hold a degree in Design and Innovation and a technical degree in Fashion, Textile and Apparel Design. I design and develop collections, research trends and new materials, and art-direct and style fashion shoots.">Soy licenciada en Diseño e Innovación y técnica en Diseño de Modas, Textiles e Indumentaria. Diseño y desarrollo colecciones, investigo tendencias y nuevos materiales, y hago dirección creativa y estilismo de producciones de moda.</p>
