@@ -13,13 +13,41 @@
   --ae-pink: #FB0292;    /* Pantone 17-2435 TN Pink Glo: único color de hover */
   --ae-soft: #6E675F;    /* texto secundario */
   --ae-rule: #D2CBC1;    /* líneas finas */
-  --ae-f-name: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --ae-f-archivo: "Archivo", "Helvetica Neue", Arial, sans-serif;                /* nombre, títulos, texto corrido */
+  --ae-f-bodoni: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;           /* cursiva de acento */
+  --ae-ease: cubic-bezier(.2, .7, .1, 1);
+  color-scheme: light;
+}
+
+/* Base común. Va en una capa (@layer) para que cualquier regla de la página le gane aunque
+   este archivo se cargue después. Para otro margen lateral, la página define --gutter. */
+@layer ae-base {
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--ae-paper); color: var(--ae-ink); font-family: var(--ae-f-archivo); line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  img, video { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+  :focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
+  ::selection { background: var(--ae-ink); color: var(--ae-paper); }
+  .wrap {
+    padding-left: max(var(--gutter, clamp(16px, 4vw, 48px)), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--gutter, clamp(16px, 4vw, 48px)), env(safe-area-inset-right, 0px));
+  }
+  /* Aparición al bajar: la clase .js la pone assets/site.js, y también agrega .in */
+  .js .rv { opacity: 0; transform: translateY(24px); transition: opacity 1.1s var(--ae-ease), transform 1.1s var(--ae-ease); }
+  .js .rv.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .js .rv { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
 }
 
 /* ANGELA ELLENA como título: siempre esta mayúscula pesada.
    El tamaño lo pone cada lugar (portada, sección de la diseñadora, pie). */
 .ae-name {
-  font-family: var(--ae-f-name);
+  font-family: var(--ae-f-archivo);
   font-weight: 800;
   font-stretch: 105%;
   font-style: normal;
@@ -31,7 +59,7 @@
 
 /* ¿HABLAMOS? — mismo diseño en todas las páginas, seguido de la fila de contacto */
 .ae-hablamos {
-  font-family: var(--ae-f-name);
+  font-family: var(--ae-f-archivo);
   font-weight: 800;
   text-transform: uppercase;
   font-size: clamp(2.6rem, 0.5rem + 10vw, 12rem);
@@ -50,7 +78,7 @@
   border-top: 1px solid var(--ae-ink);
   display: grid;
   gap: clamp(24px, 4vw, 48px);
-  font-family: var(--ae-f-name);
+  font-family: var(--ae-f-archivo);
   font-weight: 400;
 }
 .ae-contact .ae-hablamos { justify-self: start; }
@@ -92,7 +120,7 @@ a.ae-contact-v:hover { text-decoration: underline; text-underline-offset: 0.15em
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 12px 28px;
-  font-family: var(--ae-f-name);
+  font-family: var(--ae-f-archivo);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;

@@ -65,42 +65,17 @@
     }
   };
 
-  let lang = 'es';
-  const t = (key) => T[lang][key] ?? key;
-
-  function setLang(next) {
-    lang = T[next] ? next : 'es';
-    document.documentElement.lang = lang;
+  // Los botones ES / EN, sessionStorage y <html lang> los maneja ../assets/site.js,
+  // que avisa cada cambio con 'ae:lang'. Acá se aplican los textos propios de Sweet Chaos.
+  document.addEventListener('ae:lang', ({ detail: { lang } }) => {
+    const t = (key) => T[lang][key] ?? key;
     document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
     document.querySelectorAll('[data-i18n-html]').forEach((el) => { el.innerHTML = t(el.dataset.i18nHtml); });
     const star = document.querySelector('.hero-star').outerHTML.replace(' hero-star', '');
     document.querySelectorAll('[data-marquee]').forEach((el) => {
       el.innerHTML = t('marquee').map((w) => `<span>${w}</span>${star}`).join('');
     });
-    document.querySelectorAll('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
-    try { sessionStorage.setItem('ae-lang', lang); } catch (e) { /* sin storage */ }
-  }
-
-  let saved = null;
-  try { saved = sessionStorage.getItem('ae-lang'); } catch (e) { /* sin storage */ }
-  const initial = saved || 'es';
-  document.querySelectorAll('.lang button').forEach((b) => b.addEventListener('click', () => setLang(b.dataset.lang)));
-
-  /* ---------- Menú ---------- */
-  const menu = document.getElementById('menu');
-  const menuOpen = document.getElementById('menu-open');
-  const menuClose = document.getElementById('menu-close');
-
-  function toggleMenu(open) {
-    menu.hidden = !open;
-    menuOpen.setAttribute('aria-expanded', String(open));
-    document.body.style.overflow = open ? 'hidden' : '';
-    (open ? menuClose : menuOpen).focus();
-  }
-  menuOpen.addEventListener('click', () => toggleMenu(true));
-  menuClose.addEventListener('click', () => toggleMenu(false));
-  menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => toggleMenu(false)));
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) toggleMenu(false); });
+  });
 
   /* ---------- Lookbook en columnas ---------- */
   // Cada foto va a la columna más corta, así el orden se lee por filas y no hacia abajo.
@@ -127,66 +102,6 @@
   layoutMasonry();
   window.addEventListener('resize', layoutMasonry);
 
-  /* ---------- Lightbox ---------- */
-  const looks = [...document.querySelectorAll('.look-btn')].sort((a, b) => a.dataset.index - b.dataset.index);
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lb-img');
-  const lbCap = document.getElementById('lb-cap');
-  let current = 0;
 
-  function show(i) {
-    current = (i + looks.length) % looks.length;
-    const img = looks[current].querySelector('img');
-    lbImg.src = looks[current].dataset.full || img.src;
-    lbImg.alt = img.alt;
-    lbCap.textContent = looks[current].closest('figure').querySelector('figcaption').textContent + '  ·  ' + (current + 1) + ' / ' + looks.length;
-    // Precarga la siguiente para que pasar fotos sea inmediato.
-    const next = looks[(current + 1) % looks.length].dataset.full;
-    if (next) new Image().src = next;
-  }
-  looks.forEach((btn, i) => btn.addEventListener('click', () => { show(i); lb.showModal(); }));
-  document.getElementById('lb-prev').addEventListener('click', () => show(current - 1));
-  document.getElementById('lb-next').addEventListener('click', () => show(current + 1));
-  document.getElementById('lb-close').addEventListener('click', () => lb.close());
-  lb.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') show(current - 1);
-    if (e.key === 'ArrowRight') show(current + 1);
-  });
-  lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
-
-  /* ---------- Videos ---------- */
-  // Se reproducen solo mientras están en pantalla; tocar uno lo pausa y deja de autoreproducirse.
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const clips = [...document.querySelectorAll('.clip video')];
-  const stopped = new WeakSet();
-
-  clips.forEach((v) => v.addEventListener('click', () => {
-    if (v.paused) { stopped.delete(v); v.play().catch(() => {}); }
-    else { stopped.add(v); v.pause(); }
-  }));
-  if (!reduceMotion && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => entries.forEach(({ target, isIntersecting }) => {
-      if (isIntersecting && !stopped.has(target)) target.play().catch(() => {});
-      else target.pause();
-    }), { threshold: 0.35 });
-    clips.forEach((v) => io.observe(v));
-  }
-
-  /* Copiar email / teléfono: lo hace ../assets/site.js */
-
-  /* ---------- Cursor "( ver )" ---------- */
-  const cursor = document.getElementById('cursor');
-  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    let x = 0, y = 0, on = false;
-    const place = () => {
-      cursor.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) scale(${on ? 1 : 0.6})`;
-    };
-    document.addEventListener('pointermove', (e) => { x = e.clientX; y = e.clientY; place(); });
-    looks.forEach((btn) => {
-      btn.addEventListener('pointerenter', () => { on = true; cursor.classList.add('on'); place(); });
-      btn.addEventListener('pointerleave', () => { on = false; cursor.classList.remove('on'); place(); });
-    });
-  }
-
-  setLang(initial);
+  /* Idioma, menú, lightbox, videos, cursor y Copiar: ../assets/site.js */
 })();

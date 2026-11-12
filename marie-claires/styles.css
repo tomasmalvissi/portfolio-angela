@@ -14,9 +14,7 @@
   --f-script: "Pinyon Script", "Snell Roundhand", cursive;
   --f-serif: "Cormorant Garamond", "Cormorant", Garamond, Georgia, serif;
   --f-sans: "Jost", "Futura", "Helvetica Neue", Arial, sans-serif;
-  /* Letras personales de Angela (las mismas de Sweet Chaos), solo para el cierre. */
-  --f-romantic: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
-  --f-rebel: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  /* Las letras personales de Angela (--ae-f-bodoni, --ae-f-archivo) vienen de ../assets/site.css, solo para el cierre. */
 
   --s-label: 0.72rem;
   --s-body: clamp(0.98rem, 0.94rem + 0.2vw, 1.08rem);
@@ -30,11 +28,8 @@
   color-scheme: light;
 }
 
-* { box-sizing: border-box; }
-[hidden] { display: none !important; }
-html { scroll-behavior: smooth; }
+/* Base (reset, .wrap): ../assets/site.css. Acá solo lo propio de la marca. */
 body {
-  margin: 0;
   font-variant-numeric: lining-nums;
   background: var(--paper);
   color: var(--ink);
@@ -42,19 +37,9 @@ body {
   font-weight: 300;
   font-size: var(--s-body);
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
-img, video { display: block; max-width: 100%; height: auto; }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
-:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
 ::selection { background: var(--bordo); color: var(--paper); }
 
-.wrap {
-  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
-  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
-}
 .label {
   margin: 0;
   font-size: var(--s-label);
@@ -290,9 +275,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 /* La tipografía del nombre viene de ../assets/site.css (.ae-name) */
 .designer-name { margin: 0; font-size: clamp(3rem, 1.4rem + 6.4vw, 8rem); }
-.designer-cv { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); font-family: var(--f-rebel); font-weight: 400; }
+.designer-cv { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); font-family: var(--ae-f-archivo); font-weight: 400; }
 .designer-cv li { padding-block: 14px; border-bottom: 1px solid var(--rule); font-size: clamp(1.05rem, 1rem + .5vw, 1.4rem); }
-.designer-note { margin: 0; color: var(--ink-soft); max-width: 46ch; font-family: var(--f-rebel); font-weight: 400; }
+.designer-note { margin: 0; color: var(--ink-soft); max-width: 46ch; font-family: var(--ae-f-archivo); font-weight: 400; }
 
 .designer .label { letter-spacing: .08em; }
 
@@ -330,5 +315,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   background: var(--bordo); color: var(--paper);
   font-size: 0.72rem; letter-spacing: .14em; text-transform: uppercase;
   opacity: 0; transition: opacity .3s, transform .35s var(--ease);
+  --cursor-rest: .4; /* tamaño fuera de las fotos (lo lee site.js) */
 }
 .cursor.on { opacity: 1; }
